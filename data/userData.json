@@ -1,0 +1,26 @@
+[
+    {
+        "userName" : "vanya",
+        "password" : "admin8888",
+        "photo" : "", 
+        "reactions" : "2",
+        "posts" : {
+            "2234248799" : {
+                "postName" : "My first Vue Project!",
+                "postText" : "Vue (pronounced /vjuː/, like view) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be they simple or complex."
+                }
+        }
+    },
+    {
+        "userName" : "admin",
+        "password" : "admin",
+        "photo" : "",
+        "reactions" : "4",
+        "posts" : {
+            "2234248799" : {
+                "postName" : "My first Vue Project!",
+                "postText" : "Its my first vue project. This my first post!"
+                }
+        }
+    }
+]
