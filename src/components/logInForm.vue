@@ -17,8 +17,8 @@
   
 <script>
   import successBtn from './successBtn.vue';
+  import { mapGetters } from 'vuex';
   import Swal from 'sweetalert2';
-  import { mapGetters } from 'vuex'
   
     export default {
         data(){
@@ -31,16 +31,17 @@
         components: {
             successBtn,
         },
-        methods: {
+        computed: {
+          ...mapGetters(['allInfo']),
+        },
+        methods : {
           getUserData(){
-            fetch('./../../data/userData.json')
-              .then((responce) => {
-                return responce.json();
-              })
-              .then((data => {
-                for(let i = 0; i < data.length; i++){
-                  if(data[i].userName === this.username.toLocaleLowerCase().trim()){
-                    if(data[i].password === this.password.trim()){
+            let data = this.$store.dispatch('getUserData');
+            console.log(data)
+            data.then(response => {
+                for(let i = 0; i < response.length; i++){
+                  if(response[i].userName === this.username.toLocaleLowerCase().trim()){
+                    if(response[i].password === this.password.trim()){
                       Swal.fire({
                         title: 'You are loggined!',
                         icon: 'success',
@@ -66,7 +67,7 @@
                     });
                   }
                 }
-              }))
+              })
           },
           emitUpdate() {
             const updatedIsUnLogined = false;
@@ -87,7 +88,6 @@
             }
           }
         },
-        computed: mapGetters(['userInf'])
         }
 </script>
 
